@@ -10,7 +10,7 @@ meteorRouter.get('/meteors', async (request, response, next) => {
         const { date, count, wereDangerousMeteors } = request.query;
         const { startDate, endDate } = getDateRange(date)
         const meteorDto = await getMeteorDto(startDate, endDate, Boolean(wereDangerousMeteors), Boolean(count));
-        return response.json(meteorDto);
+        response.render('index.html', meteorDto);
     } catch (error) {
         next(new Exception(500, `Failed to get meteors info due to: ${error.message}`));
     }
