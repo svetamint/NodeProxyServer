@@ -5,6 +5,7 @@ import errorHandler from './exception/errorHandler.js';
 
 const app = express();
 
-app.use(meteorRouter, errorHandler)
+app.use(meteorRouter)
+app.use(errorHandler)
 
 app.listen(config.port)
