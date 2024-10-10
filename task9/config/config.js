@@ -8,5 +8,5 @@ export const config = {
     endDate: process.env.END_DATE,
     nasaMeteorUrl: `${process.env.NASA_API_URL}?api_key=${process.env.NASA_API_KEY}`,
     nasaRoverUrl: process.env.NASA_ROVER_API_URL,
-    sol: process.env.SOL
+    sol: Number(process.env.SOL)
 }

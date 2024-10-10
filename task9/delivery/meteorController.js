@@ -3,10 +3,12 @@ import { getMeteorDto } from '../use_cases/meteorMapper.js'
 import { config } from "../config/config.js";
 import Exception from "../exception/Exception.js";
 import { getLatestPhoto } from "../use_cases/roverMapper.js"
+import {imageRequestSchema, meteorQuerySchema} from "../validation/schemas.js"
+import { validate } from "../validation/validator.js";
 
 const meteorRouter = express.Router()
 
-meteorRouter.get('/meteors', async (request, response, next) => {
+meteorRouter.get('/meteors', validate(meteorQuerySchema), async (request, response, next) => {
     try {
         const { date, count, wereDangerousMeteors } = request.query;
         const { startDate, endDate } = getDateRange(date)
@@ -17,7 +19,7 @@ meteorRouter.get('/meteors', async (request, response, next) => {
     }
 });
 
-meteorRouter.post('/image', async (request, response, next) => {
+meteorRouter.post('/image', validate(imageRequestSchema), async (request, response, next) => {
     try {
         const { userId, userName, userApiKey } = request.body;
         const photo = await getLatestPhoto(userApiKey);
