@@ -1,5 +1,3 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 import express from 'express';
 import {config} from "./config/config.js";
 import meteorRouter from './delivery/meteorController.js'
@@ -8,6 +6,7 @@ import nunjucks from 'nunjucks';
 
 const app = express();
 
+app.use(express.json());
 app.use(meteorRouter)
 app.use(errorHandler)
 
