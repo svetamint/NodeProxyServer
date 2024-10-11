@@ -5,6 +5,7 @@ import Exception from "../exception/Exception.js";
 import { getLatestPhoto } from "../use_cases/roverMapper.js"
 import {imageRequestSchema, meteorQuerySchema} from "../validation/schemas.js"
 import { validate } from "../validation/validator.js";
+import { StatusCodes } from 'http-status-codes';
 
 const meteorRouter = express.Router()
 
@@ -15,7 +16,7 @@ meteorRouter.get('/meteors', validate(meteorQuerySchema), async (request, respon
         const meteorDto = await getMeteorDto(startDate, endDate, Boolean(wereDangerousMeteors), Boolean(count));
         response.render('meteors.njk', meteorDto);
     } catch (error) {
-        next(new Exception(500, `Failed to get meteors info due to: ${error.message}`));
+        next(new Exception(StatusCodes.INTERNAL_SERVER_ERROR, `Failed to get meteors info due to: ${error.message}`));
     }
 });
 
@@ -33,7 +34,7 @@ meteorRouter.post('/image', validate(imageRequestSchema), async (request, respon
             photoUrl: photo
         })
     } catch (error) {
-        next(new Exception(500, `Failed to get the latest from rover due to: ${error.message}`))
+        next(new Exception(StatusCodes.INTERNAL_SERVER_ERROR, `Failed to get the latest from rover due to: ${error.message}`))
     }
 })
 

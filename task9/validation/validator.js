@@ -1,4 +1,5 @@
-import ValidationException from '../exception/ValidationException.js'
+import Exception from '../exception/Exception.js'
+import { StatusCodes } from 'http-status-codes';
 
 export const validate = (schema) => {
     return (request, response, next) => {
@@ -6,7 +7,7 @@ export const validate = (schema) => {
         const { error, value } = schema.validate(dataToValidate, { abortEarly: false });
         if (error) {
             const errorMessages = error.details.map(err => err.message);
-            throw new ValidationException(400, errorMessages);
+            throw new Exception(StatusCodes.BAD_REQUEST, errorMessages);
         }
         request.validatedData = value;
         next();
