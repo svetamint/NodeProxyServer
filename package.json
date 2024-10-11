@@ -4,7 +4,7 @@
   "main": "task9/index.js",
   "type": "module",
   "scripts": {
-    "prepare": "task9/node_modules/.bin/husky install"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
