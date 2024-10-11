@@ -19,11 +19,19 @@ meteorRouter.get('/meteors', validate(meteorQuerySchema), async (request, respon
     }
 });
 
+meteorRouter.get('/form', (request, response) => {
+    response.render('form.njk');
+});
+
 meteorRouter.post('/image', validate(imageRequestSchema), async (request, response, next) => {
     try {
         const { userId, userName, userApiKey } = request.body;
         const photo = await getLatestPhoto(userApiKey);
-        return response.json({ userId: Number(userId), userName: userName, photoUrl: photo })
+        return response.render('photo.njk', {
+            userId: Number(userId),
+            userName: userName,
+            photoUrl: photo
+        })
     } catch (error) {
         next(new Exception(500, `Failed to get the latest from rover due to: ${error.message}`))
     }
