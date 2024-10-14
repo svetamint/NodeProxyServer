@@ -1,10 +1,19 @@
 {
+  "main": "task9/index.js",
   "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint task9/",
+    "lint:fix": "eslint task9/ --fix",
+    "format": "prettier --write task9/",
+    "prepare": "husky"
+  },
   "devDependencies": {
     "@eslint/js": "^9.12.0",
     "@typescript-eslint/eslint-plugin": "^8.8.1",
     "@typescript-eslint/parser": "^8.8.1",
     "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
     "globals": "^15.11.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.8.1"

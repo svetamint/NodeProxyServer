@@ -14,7 +14,8 @@
     "promise",
     "security",
     "import",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "prettier"
   ],
   "rules": {
     "no-console": "off",

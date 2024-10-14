@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from 'axios'
 
-import config from "../config/config.js";
+import config from '../config/config.js'
 
-const getMeteorData = async(startDate, endDate) => {
-    const response = await axios.get(config.nasaMeteorUrl, {
-        params: {
-            start_date: startDate,
-            end_date: endDate
-        }
-    });
-    return response.data.near_earth_objects;
+const getMeteorData = async (startDate, endDate) => {
+  const response = await axios.get(config.nasaMeteorUrl, {
+    params: {
+      start_date: startDate,
+      end_date: endDate
+    }
+  })
+  return response.data.near_earth_objects
 }
 
-export default getMeteorData;
+export default getMeteorData
