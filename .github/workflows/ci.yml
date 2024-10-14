@@ -1,6 +1,6 @@
 name: Lint
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   lint:
@@ -14,8 +14,13 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Change directory to task9
+        run: cd task9
+
       - name: Install dependencies
         run: npm install
+        working-directory: task9
 
       - name: Run ESLint
         run: npx eslint .
+        working-directory: task9

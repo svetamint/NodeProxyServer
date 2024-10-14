@@ -1,8 +1,7 @@
-import Exception from '../exception/Exception.js'
 import { StatusCodes } from 'http-status-codes';
+import Exception from '../exception/Exception.js'
 
-export const validate = (schema) => {
-    return (request, response, next) => {
+const validate = (schema) => (request, response, next) => {
         const dataToValidate = Object.keys(request.body).length > 0 ? request.body : request.query;
         const { error, value } = schema.validate(dataToValidate, { abortEarly: false });
         if (error) {
@@ -12,4 +11,5 @@ export const validate = (schema) => {
         request.validatedData = value;
         next();
     };
-};
+
+export default validate;

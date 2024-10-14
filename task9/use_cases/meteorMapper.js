@@ -1,6 +1,6 @@
-import {getMeteorData} from '../repository/meteorsClient.js'
+import getMeteorData from '../repository/meteorsClient.js'
 
-export const getMeteorDto = async (startDate, endDate, wereDangerousMeteors, count) => {
+const getMeteorDto = async (startDate, endDate, wereDangerousMeteors, count) => {
     const meteorData = await getMeteorData(startDate, endDate);
     const meteorDtoList = [];
     Object.values(meteorData).forEach((value) => {
@@ -28,3 +28,6 @@ export const getMeteorDto = async (startDate, endDate, wereDangerousMeteors, cou
     return responseData;
 
 }
+
+export default getMeteorDto;
+

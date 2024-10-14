@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { config } from "../config/config.js";
+import config from "../config/config.js";
 
-export const getPhotos = async (apiKey) => {
+const getPhotos = async (apiKey) => {
     const response = await axios.get(config.nasaRoverUrl, {
         params: {
             api_key: apiKey,
@@ -11,3 +11,5 @@ export const getPhotos = async (apiKey) => {
     });
     return response.data.photos;
 }
+
+export default getPhotos;
