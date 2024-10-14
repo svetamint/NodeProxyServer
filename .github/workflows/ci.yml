@@ -23,4 +23,3 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint .
-        working-directory: task9
