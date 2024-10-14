@@ -1,0 +1,9 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+    <h1>Hello, {{ userName }} (Id: {{ userId }})</h1>
+    <p>Here is the most recent image from the Mars Rover:</p>
+    <img src="{{ photoUrl }}" alt="Mars Rover Image">
+
+{% endblock %}
