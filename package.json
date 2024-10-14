@@ -16,6 +16,7 @@
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.11.0",
     "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.8.1"
   },
@@ -33,7 +34,13 @@
     }
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "prettier --write"],
-    "*.ts": ["eslint --fix", "prettier --write"]
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
