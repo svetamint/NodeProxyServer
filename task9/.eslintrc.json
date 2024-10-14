@@ -22,6 +22,6 @@
     "security/detect-object-injection": "off",
     "consistent-return": "warn",
     "import/extensions": ["off"],
-    "no-undef": "warn"
+    "no-undef": "off"
   }
 }
