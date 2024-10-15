@@ -8,7 +8,7 @@ class MeteorMapper {
     startDate: string,
     endDate: string,
     wereDangerousMeteors?: boolean,
-    count?: boolean | undefined
+    count?: boolean
   ): Promise<MeteorResponse> {
     const meteorData: NearEarthObjects = await MeteorClient.getMeteorData(
       startDate,
