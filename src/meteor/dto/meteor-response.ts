@@ -1,4 +1,4 @@
-import { MeteorDto } from './meteorDto'
+import { MeteorDto } from './meteor-dto'
 
 export interface MeteorResponse {
   meteorData: MeteorDto[]

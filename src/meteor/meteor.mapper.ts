@@ -1,16 +1,24 @@
-import MeteorClient from '../repository/MeteorClient'
-import { MeteorResponse } from '../../src/meteor/dto/meteor-response'
-import { MeteorDto } from '../../src/meteor/dto/meteor-dto'
-import { NearEarthObjects } from '../../src/meteor/dto/near-earth-objects'
+import { IMeteorMapper } from './meteor.mapper.interface'
+import { MeteorResponse } from './dto/meteor-response'
+import { inject, injectable } from 'inversify'
+import { TYPES } from '../constants/constants'
+import { IMeteorClient } from './meteor.client.interface'
+import { NearEarthObjects } from './dto/near-earth-objects'
+import { MeteorDto } from './dto/meteor-dto'
 
-class MeteorMapper {
-  public async getMeteorDto(
+@injectable()
+class MeteorMapper implements IMeteorMapper {
+  constructor(
+    @inject(TYPES.IMeteorClient) private meteorClient: IMeteorClient
+  ) {}
+
+  async toDto(
     startDate: string,
     endDate: string,
     wereDangerousMeteors?: boolean,
     count?: boolean
   ): Promise<MeteorResponse> {
-    const meteorData: NearEarthObjects = await MeteorClient.getMeteorData(
+    const meteorData: NearEarthObjects = await this.meteorClient.findAll(
       startDate,
       endDate
     )
@@ -48,4 +56,4 @@ class MeteorMapper {
   }
 }
 
-export default new MeteorMapper()
+export { MeteorMapper }

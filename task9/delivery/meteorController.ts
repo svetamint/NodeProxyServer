@@ -3,12 +3,15 @@ import { StatusCodes } from 'http-status-codes'
 import MeteorMapper from '../use_cases/MeteorMapper'
 import Exception from '../exception/Exception'
 import RoverMapper from '../use_cases/RoverMapper'
-import { imageRequestSchema, meteorQuerySchema } from '../validation/schemas'
+import {
+  imageRequestSchema,
+  meteorQuerySchema
+} from '../../src/middleware/schemas'
 import Validator from '../validation/Validator'
-import { MeteorQuery } from '../models/meteorQuery'
-import { MeteorResponse } from '../models/meteor/meteorResponse'
-import { DateRange } from '../models/DateRange'
+import { MeteorQuery } from '../../src/meteor/dto/meteor-query'
+import { MeteorResponse } from '../../src/meteor/dto/meteor-response'
 import { ImageRequest } from '../models/imageRequest'
+import { DateRange } from '../models/DateRange'
 
 class MeteorController {
   private readonly router: Router

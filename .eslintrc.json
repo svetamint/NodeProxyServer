@@ -23,6 +23,7 @@
     "security/detect-object-injection": "off",
     "consistent-return": "warn",
     "import/extensions": ["off"],
-    "no-undef": "off"
+    "no-undef": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

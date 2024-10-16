@@ -1,5 +1,5 @@
-import { CloseApproachData } from './closeApproachData'
-import { EstimatedDiameter } from './estimatedDiameter'
+import { CloseApproachData } from './close-approach-data'
+import { EstimatedDiameter } from './estimated-diameter'
 
 export interface NearEarthObject {
   links: {

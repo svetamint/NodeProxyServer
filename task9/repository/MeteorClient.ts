@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from 'axios'
 
 import config from '../config/config'
-import { NearEarthObjectsResponse } from '../models/nasaFeedData/nearEarthObjectsResponse'
-import { NearEarthObjects } from '../models/nasaFeedData/nearEarthObjects'
+import { NearEarthObjectsResponse } from '../../src/meteor/dto/near-earth-objects-response'
+import { NearEarthObjects } from '../../src/meteor/dto/near-earth-objects'
 
 class MeteorClient {
   apiUrl: string
