@@ -52,11 +52,9 @@ class App {
 
   public async init(): Promise<void> {
     this.useMiddleware()
+    this.configureNunjucks()
     this.useRoutes()
     this.useExceptionFilters()
-    this.configureNunjucks()
-    this.app.listen(this.port)
-    console.log(`Server works http://localhost:${this.port}`)
   }
 }
 
