@@ -1,32 +1,39 @@
 {
-  "main": "task9/index.js",
-  "type": "module",
+  "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint task9/",
     "lint:fix": "eslint task9/ --fix",
     "format": "prettier --write task9/",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "tsc",
+    "start": "node dist/src/main.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "@types/nunjucks": "^3.2.6",
     "@typescript-eslint/eslint-plugin": "^8.8.1",
     "@typescript-eslint/parser": "^8.8.1",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
+    "express": "^4.21.1",
     "globals": "^15.11.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
-    "typescript": "^5.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
     "typescript-eslint": "^8.8.1"
   },
   "dependencies": {
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
-    "express": "^4.21.1",
     "http-status-codes": "^2.3.0",
+    "inversify": "^6.0.2",
     "joi": "^17.13.3",
-    "nunjucks": "^3.2.4"
+    "nunjucks": "^3.2.4",
+    "reflect-metadata": "^0.2.2"
   },
   "husky": {
     "hooks": {
